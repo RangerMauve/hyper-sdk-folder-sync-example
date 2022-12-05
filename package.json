@@ -1,0 +1,26 @@
+{
+  "name": "hyper-sdk-folder-sync-example",
+  "version": "1.0.0",
+  "description": "Example Node.js project for syncing to and from Hyperdrives with Hyper-SDK@4",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RangerMauve/hyper-sdk-folder-sync-example.git"
+  },
+  "author": "rangermauve <ranger@mauve.moe> (https://mauve.moe/)",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/RangerMauve/hyper-sdk-folder-sync-example/issues"
+  },
+  "homepage": "https://github.com/RangerMauve/hyper-sdk-folder-sync-example#readme",
+  "dependencies": {
+    "hyper-sdk": "^4.0.0",
+    "hyperdrive": "^11.0.0-alpha.9",
+    "localdrive": "^1.3.0",
+    "mirror-drive": "^1.2.0"
+  }
+}
