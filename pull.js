@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 import { create } from 'hyper-sdk'
-// import { parseArgs } from 'node:util'
+import { parseArgs } from 'node:util'
 import Hyperdrive from 'hyperdrive'
 import Localdrive from 'localdrive'
 import MirrorDrive from 'mirror-drive'
 
-const url = process.argv[2]
+const options = {
+  url: { type: 'string', short: 'u' },
+  location: { type: 'string', short: 'l' },
+}
 
-if (!url.startsWith('hyper://')) {
-  console.log('Please specify a `hyper://` URL to load')
+const { url, location } = parseArgs({ options }).values
+
+if (url === undefined || !url.startsWith('hyper://')) {
+  console.log('Please pass a `hyper://` URL to the -u flag.')
   process.exit(1)
 }
 
@@ -43,9 +48,7 @@ await drive.ready()
 
 console.log('Created drive')
 
-const location = process.argv[3] || process.cwd()
-
-const local = new Localdrive(location)
+const local = new Localdrive(location ?? process.cwd())
 
 console.log(`Syncing with folder \n\t${location}`)
 

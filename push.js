@@ -1,11 +1,17 @@
 #!/usr/bin/env node
 import { create } from 'hyper-sdk'
-// import { parseArgs } from 'node:util'
+import { parseArgs } from 'node:util'
 import Hyperdrive from 'hyperdrive'
 import Localdrive from 'localdrive'
 import MirrorDrive from 'mirror-drive'
 
 console.log('Loading')
+
+const options = {
+  location: { type: 'string', short: 'l' },
+}
+
+const { location } = parseArgs({ options }).values
 
 const sdk = await create({
   storage: false
@@ -34,9 +40,7 @@ await drive.ready()
 
 console.log(`Created drive\n\t ${drive.core.url}`)
 
-const location = process.argv[2] || process.cwd()
-
-const local = new Localdrive(location)
+const local = new Localdrive(location ?? process.cwd())
 
 console.log(`Syncing with folder \n\t${location}`)
 
