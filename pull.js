@@ -8,9 +8,10 @@ import MirrorDrive from 'mirror-drive'
 const options = {
   url: { type: 'string', short: 'u' },
   location: { type: 'string', short: 'l' },
+  storage: { type: 'string', short: 's'}
 }
 
-const { url, location } = parseArgs({ options }).values
+const { url, location, storage } = parseArgs({ options }).values
 
 if (url === undefined || !url.startsWith('hyper://')) {
   console.log('Please pass a `hyper://` URL to the -u flag.')
@@ -18,7 +19,7 @@ if (url === undefined || !url.startsWith('hyper://')) {
 }
 
 const sdk = await create({
-  storage: false
+  storage: storage || false
 })
 
 console.log(`Own Swarm ID:\n\t ${sdk.publicKey.toString('hex')}`)

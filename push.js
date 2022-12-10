@@ -9,12 +9,13 @@ console.log('Loading')
 
 const options = {
   location: { type: 'string', short: 'l' },
+  storage: { type: 'string', short: 's'}
 }
 
-const { location } = parseArgs({ options }).values
+const { location, storage } = parseArgs({ options }).values
 
 const sdk = await create({
-  storage: false
+  storage: storage || false
 })
 
 console.log(`Own Swarm ID:\n\t ${sdk.publicKey.toString('hex')}`)
