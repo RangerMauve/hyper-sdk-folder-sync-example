@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { create } from 'hyper-sdk'
-import { parseArgs } from 'node:util'
+import { parseArgs } from '@pkgjs/parseargs'
 import Hyperdrive from 'hyperdrive'
 import Localdrive from 'localdrive'
 import MirrorDrive from 'mirror-drive'
