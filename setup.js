@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { create } from 'hyper-sdk'
-import { parseArgs } from '@pkgjs/parseargs'
+import { parseArgs } from 'node:util'
 
 const options = {
   storage: { type: 'string', short: 's'}
