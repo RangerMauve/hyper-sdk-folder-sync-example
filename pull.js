@@ -3,7 +3,6 @@ import { create } from 'hyper-sdk'
 // import { parseArgs } from 'node:util'
 import Hyperdrive from 'hyperdrive'
 import Localdrive from 'localdrive'
-import MirrorDrive from 'mirror-drive'
 
 const url = process.argv[2]
 
@@ -49,7 +48,7 @@ const local = new Localdrive(location)
 
 console.log(`Syncing with folder \n\t${location}`)
 
-const mirror = new MirrorDrive(drive, local, {
+const mirror = drive.mirror(local, {
   filter: (key) => !key.startsWith('/.') && !key.startsWith('/node_modules')
 })
 
