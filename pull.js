@@ -13,7 +13,7 @@ const options = {
 
 const { url, location, storage } = parseArgs({ options }).values
 
-if (url === undefined || !url.startsWith('hyper://')) {
+if (!url || !url.startsWith('hyper://')) {
   console.log('Please pass a `hyper://` URL to the -u flag.')
   process.exit(1)
 }
